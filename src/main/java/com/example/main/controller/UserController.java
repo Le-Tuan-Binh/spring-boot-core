@@ -34,7 +34,7 @@ public class UserController {
 
     @GetMapping("/{userID}")
     public UserRequestDTO getUser(@Min(1) @PathVariable int userID) {
-        return new UserRequestDTO("", "", "", "", null, null, null);
+        return new UserRequestDTO("", "", "", "", null, null, null, null);
     }
 
     @GetMapping()
