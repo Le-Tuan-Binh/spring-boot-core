@@ -1,5 +1,7 @@
 package com.example.main.dto.request;
 
+import com.example.main.enums.UserStatus;
+import com.example.main.validation.annotation.ValidEnum;
 import com.example.main.validation.annotation.ValidPhoneNumber;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Email;
@@ -37,4 +39,8 @@ public class UserRequestDTO implements Serializable {
 
     @NotEmpty
     private List<String> permissions;
+
+    @ValidEnum(name = "status", regexp = "ACTIVE|INACTIVE|NONE")
+    private UserStatus status;
+
 }
