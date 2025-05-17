@@ -2,6 +2,8 @@ package com.example.main.dto.request;
 
 import com.example.main.enums.Gender;
 import com.example.main.enums.UserStatus;
+import com.example.main.enums.UserType;
+import com.example.main.validation.annotation.EnumValue;
 import com.example.main.validation.annotation.ValidEnum;
 import com.example.main.validation.annotation.ValidGender;
 import com.example.main.validation.annotation.ValidPhoneNumber;
@@ -47,5 +49,9 @@ public class UserRequestDTO implements Serializable {
 
     @ValidGender(anyOf = {Gender.MALE, Gender.FEMALE, Gender.OTHER})
     private Gender gender;
+
+    @NotNull(message = "Type must be not null")
+    @EnumValue(name = "type", enumClass = UserType.class)
+    private String type;
 
 }
